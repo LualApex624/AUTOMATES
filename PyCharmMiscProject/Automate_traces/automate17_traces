@@ -1,0 +1,246 @@
+=== Lecture de l'automate depuis le fichier automate/automate17.txt ===
+Alphabet: ['a', 'b', 'c', 'd']
+États: [0, 1, 2, 3, 4, 5]
+États initiaux: [1, 2, 3, 4]
+États terminaux: [5]
+Transitions:
+1 --a--> {1, 2}
+2 --b--> {2, 3}
+3 --c--> {3, 4}
+4 --d--> {4, 5}
+5 --a--> {0}
+5 --b--> {0}
+5 --c--> {0}
+5 --d--> {0}
+
+=== Vérification des propriétés de l'automate ===
+Cet automate n'a pas un unique état initial, il n'est pas déterministe
+Déterministe : False
+Cet automate n'a pas 1 unique état initial, il n'est pas standard
+Standard : False
+L'automate est incomplet car les états suivants sont sans transitions : [(0, 'a'), (0, 'b'), (0, 'c'), (0, 'd'), (1, 'b'), (1, 'c'), (1, 'd'), (2, 'a'), (2, 'c'), (2, 'd'), (3, 'a'), (3, 'b'), (3, 'd'), (4, 'a'), (4, 'b'), (4, 'c')]
+Complet : False
+
+=== Standardisation de l'automate ===
+Cet automate n'a pas 1 unique état initial, il n'est pas standard
+Cet automate n'a pas 1 unique état initial, il n'est pas standard
+Création de l'automate standard : 
+Alphabet: ['a', 'b', 'c', 'd']
+États: [0, 1, 2, 3, 4, 5, 6]
+États initiaux: [6]
+États terminaux: [5]
+Transitions:
+1 --a--> {1, 2}
+2 --b--> {2, 3}
+3 --c--> {3, 4}
+4 --d--> {4, 5}
+5 --a--> {0}
+5 --b--> {0}
+5 --c--> {0}
+5 --d--> {0}
+6 --a--> {1, 2}
+6 --b--> {2, 3}
+6 --c--> {3, 4}
+6 --d--> {4, 5}
+
+=== Déterminisation et complétion de l'automate ===
+
+Début de la déterminisation et de la complétion...
+L'automate ne contient pas de transitions epsilon. Utilisation de determiniser_automate.
+Cet automate n'a pas un unique état initial, il n'est pas déterministe
+L'automate n'est pas déterministe, création de l'automate déterministe : 
+Automate déterminisé :
+Alphabet: ['a', 'b', 'c', 'd']
+États: {'0_4_5', '1_2_3_4', '3_4', '2_3', '4_5', '1_2', '0'}
+États initiaux: {'1_2_3_4'}
+États terminaux: {'0_4_5', '4_5'}
+Transitions:
+1_2_3_4 --a--> 1_2
+1_2_3_4 --b--> 2_3
+1_2_3_4 --c--> 3_4
+1_2_3_4 --d--> 4_5
+1_2 --a--> 1_2
+1_2 --b--> 2_3
+2_3 --b--> 2_3
+2_3 --c--> 3_4
+3_4 --c--> 3_4
+3_4 --d--> 4_5
+4_5 --a--> 0
+4_5 --b--> 0
+4_5 --c--> 0
+4_5 --d--> 0_4_5
+0_4_5 --a--> 0
+0_4_5 --b--> 0
+0_4_5 --c--> 0
+0_4_5 --d--> 0_4_5
+
+Complétion en cours...
+Cet automate est déterministe
+L'automate est incomplet car les états suivants sont sans transitions : [('3_4', 'a'), ('3_4', 'b'), ('2_3', 'a'), ('2_3', 'd'), ('1_2', 'c'), ('1_2', 'd'), ('0', 'a'), ('0', 'b'), ('0', 'c'), ('0', 'd')]
+Début de la complétion...
+➕ Transition ajoutée : 2_3 --(a)--> 1235
+➕ Transition ajoutée : 2_3 --(d)--> 1235
+➕ Transition ajoutée : 1_2 --(c)--> 1235
+➕ Transition ajoutée : 1_2 --(d)--> 1235
+➕ Transition ajoutée : 3_4 --(a)--> 1235
+➕ Transition ajoutée : 3_4 --(b)--> 1235
+➕ Transition ajoutée : 0 --(a)--> 1235
+➕ Transition ajoutée : 0 --(b)--> 1235
+➕ Transition ajoutée : 0 --(c)--> 1235
+➕ Transition ajoutée : 0 --(d)--> 1235
+Automate déterminisé et complet :
+Alphabet: ['a', 'b', 'c', 'd']
+États: {'0_4_5', '2_3', '4_5', '1_2', '1_2_3_4', '3_4', '0'}
+États initiaux: {'1_2_3_4'}
+États terminaux: {'0_4_5', '4_5'}
+Transitions:
+1_2_3_4 --a--> 1_2
+1_2_3_4 --b--> 2_3
+1_2_3_4 --c--> 3_4
+1_2_3_4 --d--> 4_5
+1_2 --a--> 1_2
+1_2 --b--> 2_3
+2_3 --b--> 2_3
+2_3 --c--> 3_4
+3_4 --c--> 3_4
+3_4 --d--> 4_5
+4_5 --a--> 0
+4_5 --b--> 0
+4_5 --c--> 0
+4_5 --d--> 0_4_5
+0_4_5 --a--> 0
+0_4_5 --b--> 0
+0_4_5 --c--> 0
+0_4_5 --d--> 0_4_5
+2_3 --a--> 1235
+2_3 --d--> 1235
+1_2 --c--> 1235
+1_2 --d--> 1235
+3_4 --a--> 1235
+3_4 --b--> 1235
+0 --a--> 1235
+0 --b--> 1235
+0 --c--> 1235
+0 --d--> 1235
+1235 --a--> 1235
+1235 --b--> 1235
+1235 --c--> 1235
+1235 --d--> 1235
+
+=== Reconnaissance de mots avec l'automate déterministe et complet ===
+
+Test du mot : 
+❌ Le mot '' est rejeté (état final 1_2_3_4 non terminal).
+
+Test du mot : a
+❌ Le mot 'a' est rejeté (état final 1_2 non terminal).
+
+Test du mot : b
+❌ Le mot 'b' est rejeté (état final 2_3 non terminal).
+
+Test du mot : c
+❌ Le mot 'c' est rejeté (état final 3_4 non terminal).
+
+Test du mot : d
+✅ Le mot 'd' est accepté.
+
+Test du mot : abbcd
+✅ Le mot 'abbcd' est accepté.
+
+Test du mot : accccccd
+❌ Le mot 'accccccd' est rejeté (état final 1235 non terminal).
+
+Test du mot : e
+❌ Symbole 'e' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : f
+❌ Symbole 'f' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : aaaaa
+❌ Le mot 'aaaaa' est rejeté (état final 1_2 non terminal).
+
+Test du mot : ababa
+❌ Le mot 'ababa' est rejeté (état final 1235 non terminal).
+
+Test du mot : acbd
+❌ Le mot 'acbd' est rejeté (état final 1235 non terminal).
+
+Test du mot : acbbbbbd
+❌ Le mot 'acbbbbbd' est rejeté (état final 1235 non terminal).
+
+Test du mot : ccbdadb
+❌ Le mot 'ccbdadb' est rejeté (état final 1235 non terminal).
+
+Test du mot : abaaa
+❌ Le mot 'abaaa' est rejeté (état final 1235 non terminal).
+
+Test du mot : abcd
+✅ Le mot 'abcd' est accepté.
+
+Test du mot : aaaba
+❌ Le mot 'aaaba' est rejeté (état final 1235 non terminal).
+
+Test du mot : ba
+❌ Le mot 'ba' est rejeté (état final 1235 non terminal).
+
+Test du mot : aab
+❌ Le mot 'aab' est rejeté (état final 2_3 non terminal).
+
+Test du mot : aaaaaaaaaaaa
+❌ Le mot 'aaaaaaaaaaaa' est rejeté (état final 1_2 non terminal).
+
+Test du mot : ababababaaab
+❌ Le mot 'ababababaaab' est rejeté (état final 1235 non terminal).
+
+Test du mot : aba
+❌ Le mot 'aba' est rejeté (état final 1235 non terminal).
+
+Test du mot : bbbb
+❌ Le mot 'bbbb' est rejeté (état final 2_3 non terminal).
+
+Test du mot : bbaababend
+❌ Symbole 'e' non reconnu dans l'alphabet de l'automate.
+
+=== Création de l'automate complémentaire ===
+Complémentarisation:
+Cet automate est déterministe
+L'automate est déjà déterministe
+Cet automate est déterministe
+création de l'automate complémentaire : 
+Alphabet: ['a', 'b', 'c', 'd']
+États: {'0_4_5', '1_2_3_4', '3_4', '2_3', '4_5', '1_2', '0'}
+États initiaux: {'1_2_3_4'}
+États terminaux: {'1_2_3_4', '3_4', '2_3', '1_2', '0'}
+Transitions:
+1_2_3_4 --a--> 1_2
+1_2_3_4 --b--> 2_3
+1_2_3_4 --c--> 3_4
+1_2_3_4 --d--> 4_5
+1_2 --a--> 1_2
+1_2 --b--> 2_3
+2_3 --b--> 2_3
+2_3 --c--> 3_4
+3_4 --c--> 3_4
+3_4 --d--> 4_5
+4_5 --a--> 0
+4_5 --b--> 0
+4_5 --c--> 0
+4_5 --d--> 0_4_5
+0_4_5 --a--> 0
+0_4_5 --b--> 0
+0_4_5 --c--> 0
+0_4_5 --d--> 0_4_5
+2_3 --a--> 1235
+2_3 --d--> 1235
+1_2 --c--> 1235
+1_2 --d--> 1235
+3_4 --a--> 1235
+3_4 --b--> 1235
+0 --a--> 1235
+0 --b--> 1235
+0 --c--> 1235
+0 --d--> 1235
+1235 --a--> 1235
+1235 --b--> 1235
+1235 --c--> 1235
+1235 --d--> 1235

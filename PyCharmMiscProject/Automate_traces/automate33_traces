@@ -1,0 +1,260 @@
+=== Lecture de l'automate depuis le fichier automate/automate33.txt ===
+Alphabet: ['a', 'b', 'c', 'd']
+États: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+États initiaux: [0]
+États terminaux: [12]
+Transitions:
+0 --€--> {1, 7}
+1 --€--> {2, 4}
+2 --a--> {3}
+3 --€--> {5}
+5 --c--> {6}
+4 --b--> {4}
+4 --€--> {5}
+6 --€--> {12}
+7 --€--> {8}
+8 --a--> {8}
+8 --€--> {11}
+11 --c--> {11}
+7 --c--> {9}
+9 --b--> {10}
+10 --€--> {11}
+11 --€--> {12}
+
+=== Vérification des propriétés de l'automate ===
+Cet automate a des états qui transitent vers plus d'un état avec le même symbole.
+Déterministe : False
+Cet automate est standard
+Standard : True
+L'automate est incomplet car les états suivants sont sans transitions : [(0, 'a'), (0, 'b'), (0, 'c'), (0, 'd'), (1, 'a'), (1, 'b'), (1, 'c'), (1, 'd'), (2, 'b'), (2, 'c'), (2, 'd'), (3, 'a'), (3, 'b'), (3, 'c'), (3, 'd'), (4, 'a'), (4, 'c'), (4, 'd'), (5, 'a'), (5, 'b'), (5, 'd'), (6, 'a'), (6, 'b'), (6, 'c'), (6, 'd'), (7, 'a'), (7, 'b'), (7, 'd'), (8, 'b'), (8, 'c'), (8, 'd'), (9, 'a'), (9, 'c'), (9, 'd'), (10, 'a'), (10, 'b'), (10, 'c'), (10, 'd'), (11, 'a'), (11, 'b'), (11, 'd'), (12, 'a'), (12, 'b'), (12, 'c'), (12, 'd')]
+Complet : False
+
+=== Standardisation de l'automate ===
+Cet automate est standard
+L'automate est déjà standard.
+
+=== Déterminisation et complétion de l'automate ===
+
+Début de la déterminisation et de la complétion...
+L'automate contient des transitions epsilon. Utilisation de determiniser_automate_epsilon.
+Cet automate a des états qui transitent vers plus d'un état avec le même symbole.
+L'automate n'est pas déterministe, création de l'automate déterministe : 
+Automate déterminisé :
+Alphabet: ['a', 'b', 'c', 'd']
+États: {'11_12', '6_9_11_12', '4_5', '6_11_12', '10_11_12', '3_5_8_11_12', '8_11_12', '6_12', '0_1_2_4_5_7_8_11_12'}
+États initiaux: {'0_1_2_4_5_7_8_11_12'}
+États terminaux: {'11_12', '6_9_11_12', '6_11_12', '10_11_12', '3_5_8_11_12', '8_11_12', '6_12', '0_1_2_4_5_7_8_11_12'}
+Transitions:
+0_1_2_4_5_7_8_11_12 --a--> 3_5_8_11_12
+0_1_2_4_5_7_8_11_12 --b--> 4_5
+0_1_2_4_5_7_8_11_12 --c--> 6_9_11_12
+3_5_8_11_12 --a--> 8_11_12
+3_5_8_11_12 --c--> 6_11_12
+4_5 --b--> 4_5
+4_5 --c--> 6_12
+6_9_11_12 --b--> 10_11_12
+6_9_11_12 --c--> 11_12
+8_11_12 --a--> 8_11_12
+8_11_12 --c--> 11_12
+6_11_12 --c--> 11_12
+10_11_12 --c--> 11_12
+11_12 --c--> 11_12
+
+Complétion en cours...
+Cet automate est déterministe
+L'automate est incomplet car les états suivants sont sans transitions : [('11_12', 'a'), ('11_12', 'b'), ('11_12', 'd'), ('6_9_11_12', 'a'), ('6_9_11_12', 'd'), ('4_5', 'a'), ('4_5', 'd'), ('6_11_12', 'a'), ('6_11_12', 'b'), ('6_11_12', 'd'), ('10_11_12', 'a'), ('10_11_12', 'b'), ('10_11_12', 'd'), ('3_5_8_11_12', 'b'), ('3_5_8_11_12', 'd'), ('8_11_12', 'b'), ('8_11_12', 'd'), ('6_12', 'a'), ('6_12', 'b'), ('6_12', 'c'), ('6_12', 'd'), ('0_1_2_4_5_7_8_11_12', 'd')]
+Début de la complétion...
+➕ Transition ajoutée : 11_12 --(a)--> 1245781113
+➕ Transition ajoutée : 11_12 --(b)--> 1245781113
+➕ Transition ajoutée : 11_12 --(d)--> 1245781113
+➕ Transition ajoutée : 6_9_11_12 --(a)--> 1245781113
+➕ Transition ajoutée : 6_9_11_12 --(d)--> 1245781113
+➕ Transition ajoutée : 4_5 --(a)--> 1245781113
+➕ Transition ajoutée : 4_5 --(d)--> 1245781113
+➕ Transition ajoutée : 6_11_12 --(a)--> 1245781113
+➕ Transition ajoutée : 6_11_12 --(b)--> 1245781113
+➕ Transition ajoutée : 6_11_12 --(d)--> 1245781113
+➕ Transition ajoutée : 10_11_12 --(a)--> 1245781113
+➕ Transition ajoutée : 10_11_12 --(b)--> 1245781113
+➕ Transition ajoutée : 10_11_12 --(d)--> 1245781113
+➕ Transition ajoutée : 3_5_8_11_12 --(b)--> 1245781113
+➕ Transition ajoutée : 3_5_8_11_12 --(d)--> 1245781113
+➕ Transition ajoutée : 8_11_12 --(b)--> 1245781113
+➕ Transition ajoutée : 8_11_12 --(d)--> 1245781113
+➕ Transition ajoutée : 6_12 --(a)--> 1245781113
+➕ Transition ajoutée : 6_12 --(b)--> 1245781113
+➕ Transition ajoutée : 6_12 --(c)--> 1245781113
+➕ Transition ajoutée : 6_12 --(d)--> 1245781113
+➕ Transition ajoutée : 0_1_2_4_5_7_8_11_12 --(d)--> 1245781113
+Automate déterminisé et complet :
+Alphabet: ['a', 'b', 'c', 'd']
+États: {'11_12', '6_9_11_12', '4_5', '6_11_12', '10_11_12', '3_5_8_11_12', '8_11_12', '6_12', '0_1_2_4_5_7_8_11_12'}
+États initiaux: {'0_1_2_4_5_7_8_11_12'}
+États terminaux: {'11_12', '6_9_11_12', '6_11_12', '10_11_12', '3_5_8_11_12', '8_11_12', '6_12', '0_1_2_4_5_7_8_11_12'}
+Transitions:
+0_1_2_4_5_7_8_11_12 --a--> 3_5_8_11_12
+0_1_2_4_5_7_8_11_12 --b--> 4_5
+0_1_2_4_5_7_8_11_12 --c--> 6_9_11_12
+3_5_8_11_12 --a--> 8_11_12
+3_5_8_11_12 --c--> 6_11_12
+4_5 --b--> 4_5
+4_5 --c--> 6_12
+6_9_11_12 --b--> 10_11_12
+6_9_11_12 --c--> 11_12
+8_11_12 --a--> 8_11_12
+8_11_12 --c--> 11_12
+6_11_12 --c--> 11_12
+10_11_12 --c--> 11_12
+11_12 --c--> 11_12
+11_12 --a--> 1245781113
+11_12 --b--> 1245781113
+11_12 --d--> 1245781113
+6_9_11_12 --a--> 1245781113
+6_9_11_12 --d--> 1245781113
+4_5 --a--> 1245781113
+4_5 --d--> 1245781113
+6_11_12 --a--> 1245781113
+6_11_12 --b--> 1245781113
+6_11_12 --d--> 1245781113
+10_11_12 --a--> 1245781113
+10_11_12 --b--> 1245781113
+10_11_12 --d--> 1245781113
+3_5_8_11_12 --b--> 1245781113
+3_5_8_11_12 --d--> 1245781113
+8_11_12 --b--> 1245781113
+8_11_12 --d--> 1245781113
+6_12 --a--> 1245781113
+6_12 --b--> 1245781113
+6_12 --c--> 1245781113
+6_12 --d--> 1245781113
+0_1_2_4_5_7_8_11_12 --d--> 1245781113
+1245781113 --a--> 1245781113
+1245781113 --b--> 1245781113
+1245781113 --c--> 1245781113
+1245781113 --d--> 1245781113
+
+=== Reconnaissance de mots avec l'automate déterministe et complet ===
+
+Test du mot : 
+✅ Le mot '' est accepté.
+
+Test du mot : a
+✅ Le mot 'a' est accepté.
+
+Test du mot : b
+❌ Le mot 'b' est rejeté (état final 4_5 non terminal).
+
+Test du mot : c
+✅ Le mot 'c' est accepté.
+
+Test du mot : d
+❌ Le mot 'd' est rejeté (état final 1245781113 non terminal).
+
+Test du mot : abbcd
+❌ Le mot 'abbcd' est rejeté (état final 1245781113 non terminal).
+
+Test du mot : accccccd
+❌ Le mot 'accccccd' est rejeté (état final 1245781113 non terminal).
+
+Test du mot : e
+❌ Symbole 'e' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : f
+❌ Symbole 'f' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : aaaaa
+✅ Le mot 'aaaaa' est accepté.
+
+Test du mot : ababa
+❌ Le mot 'ababa' est rejeté (état final 1245781113 non terminal).
+
+Test du mot : acbd
+❌ Le mot 'acbd' est rejeté (état final 1245781113 non terminal).
+
+Test du mot : acbbbbbd
+❌ Le mot 'acbbbbbd' est rejeté (état final 1245781113 non terminal).
+
+Test du mot : ccbdadb
+❌ Le mot 'ccbdadb' est rejeté (état final 1245781113 non terminal).
+
+Test du mot : abaaa
+❌ Le mot 'abaaa' est rejeté (état final 1245781113 non terminal).
+
+Test du mot : abcd
+❌ Le mot 'abcd' est rejeté (état final 1245781113 non terminal).
+
+Test du mot : aaaba
+❌ Le mot 'aaaba' est rejeté (état final 1245781113 non terminal).
+
+Test du mot : ba
+❌ Le mot 'ba' est rejeté (état final 1245781113 non terminal).
+
+Test du mot : aab
+❌ Le mot 'aab' est rejeté (état final 1245781113 non terminal).
+
+Test du mot : aaaaaaaaaaaa
+✅ Le mot 'aaaaaaaaaaaa' est accepté.
+
+Test du mot : ababababaaab
+❌ Le mot 'ababababaaab' est rejeté (état final 1245781113 non terminal).
+
+Test du mot : aba
+❌ Le mot 'aba' est rejeté (état final 1245781113 non terminal).
+
+Test du mot : bbbb
+❌ Le mot 'bbbb' est rejeté (état final 4_5 non terminal).
+
+Test du mot : bbaababend
+❌ Symbole 'e' non reconnu dans l'alphabet de l'automate.
+
+=== Création de l'automate complémentaire ===
+Complémentarisation:
+Cet automate est déterministe
+L'automate est déjà déterministe
+Cet automate est déterministe
+création de l'automate complémentaire : 
+Alphabet: ['a', 'b', 'c', 'd']
+États: {'11_12', '6_9_11_12', '4_5', '6_11_12', '10_11_12', '3_5_8_11_12', '8_11_12', '6_12', '0_1_2_4_5_7_8_11_12'}
+États initiaux: {'0_1_2_4_5_7_8_11_12'}
+États terminaux: {'4_5'}
+Transitions:
+0_1_2_4_5_7_8_11_12 --a--> 3_5_8_11_12
+0_1_2_4_5_7_8_11_12 --b--> 4_5
+0_1_2_4_5_7_8_11_12 --c--> 6_9_11_12
+3_5_8_11_12 --a--> 8_11_12
+3_5_8_11_12 --c--> 6_11_12
+4_5 --b--> 4_5
+4_5 --c--> 6_12
+6_9_11_12 --b--> 10_11_12
+6_9_11_12 --c--> 11_12
+8_11_12 --a--> 8_11_12
+8_11_12 --c--> 11_12
+6_11_12 --c--> 11_12
+10_11_12 --c--> 11_12
+11_12 --c--> 11_12
+11_12 --a--> 1245781113
+11_12 --b--> 1245781113
+11_12 --d--> 1245781113
+6_9_11_12 --a--> 1245781113
+6_9_11_12 --d--> 1245781113
+4_5 --a--> 1245781113
+4_5 --d--> 1245781113
+6_11_12 --a--> 1245781113
+6_11_12 --b--> 1245781113
+6_11_12 --d--> 1245781113
+10_11_12 --a--> 1245781113
+10_11_12 --b--> 1245781113
+10_11_12 --d--> 1245781113
+3_5_8_11_12 --b--> 1245781113
+3_5_8_11_12 --d--> 1245781113
+8_11_12 --b--> 1245781113
+8_11_12 --d--> 1245781113
+6_12 --a--> 1245781113
+6_12 --b--> 1245781113
+6_12 --c--> 1245781113
+6_12 --d--> 1245781113
+0_1_2_4_5_7_8_11_12 --d--> 1245781113
+1245781113 --a--> 1245781113
+1245781113 --b--> 1245781113
+1245781113 --c--> 1245781113
+1245781113 --d--> 1245781113

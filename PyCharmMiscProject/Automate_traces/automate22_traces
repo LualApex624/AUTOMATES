@@ -1,0 +1,199 @@
+=== Lecture de l'automate depuis le fichier automate/automate22.txt ===
+Alphabet: ['a', 'b', 'c', 'd']
+États: [0, 1, 2, 3]
+États initiaux: [1]
+États terminaux: [1]
+Transitions:
+1 --a--> {0, 2, 3}
+2 --b--> {3}
+3 --c--> {0}
+0 --d--> {1}
+
+=== Vérification des propriétés de l'automate ===
+Cet automate a des états qui transitent vers plus d'un état avec le même symbole.
+Déterministe : False
+Il y'a des transitions qui mènent à l'état initial de cet automate, il n'est pas standard
+Standard : False
+L'automate est incomplet car les états suivants sont sans transitions : [(0, 'a'), (0, 'b'), (0, 'c'), (1, 'b'), (1, 'c'), (1, 'd'), (2, 'a'), (2, 'c'), (2, 'd'), (3, 'a'), (3, 'b'), (3, 'd')]
+Complet : False
+
+=== Standardisation de l'automate ===
+Il y'a des transitions qui mènent à l'état initial de cet automate, il n'est pas standard
+Il y'a des transitions qui mènent à l'état initial de cet automate, il n'est pas standard
+Création de l'automate standard : 
+Alphabet: ['a', 'b', 'c', 'd']
+États: [0, 1, 2, 3, 4]
+États initiaux: [4]
+États terminaux: [1, 4]
+Transitions:
+1 --a--> {0, 2, 3}
+2 --b--> {3}
+3 --c--> {0}
+0 --d--> {1}
+4 --a--> {0, 2, 3}
+
+=== Déterminisation et complétion de l'automate ===
+
+Début de la déterminisation et de la complétion...
+L'automate ne contient pas de transitions epsilon. Utilisation de determiniser_automate.
+Cet automate a des états qui transitent vers plus d'un état avec le même symbole.
+L'automate n'est pas déterministe, création de l'automate déterministe : 
+Automate déterminisé :
+Alphabet: ['a', 'b', 'c', 'd']
+États: {'0', '0_2_3', '1', '3'}
+États initiaux: {'1'}
+États terminaux: {'1'}
+Transitions:
+1 --a--> 0_2_3
+0_2_3 --b--> 3
+0_2_3 --c--> 0
+0_2_3 --d--> 1
+3 --c--> 0
+0 --d--> 1
+
+Complétion en cours...
+Cet automate est déterministe
+L'automate est incomplet car les états suivants sont sans transitions : [('0', 'a'), ('0', 'b'), ('0', 'c'), ('0_2_3', 'a'), ('1', 'b'), ('1', 'c'), ('1', 'd'), ('3', 'a'), ('3', 'b'), ('3', 'd')]
+Début de la complétion...
+➕ Transition ajoutée : 0 --(a)--> 24
+➕ Transition ajoutée : 0 --(b)--> 24
+➕ Transition ajoutée : 0 --(c)--> 24
+➕ Transition ajoutée : 0_2_3 --(a)--> 24
+➕ Transition ajoutée : 1 --(b)--> 24
+➕ Transition ajoutée : 1 --(c)--> 24
+➕ Transition ajoutée : 1 --(d)--> 24
+➕ Transition ajoutée : 3 --(a)--> 24
+➕ Transition ajoutée : 3 --(b)--> 24
+➕ Transition ajoutée : 3 --(d)--> 24
+Automate déterminisé et complet :
+Alphabet: ['a', 'b', 'c', 'd']
+États: {'0', '0_2_3', '1', '3'}
+États initiaux: {'1'}
+États terminaux: {'1'}
+Transitions:
+1 --a--> 0_2_3
+0_2_3 --b--> 3
+0_2_3 --c--> 0
+0_2_3 --d--> 1
+3 --c--> 0
+0 --d--> 1
+0 --a--> 24
+0 --b--> 24
+0 --c--> 24
+0_2_3 --a--> 24
+1 --b--> 24
+1 --c--> 24
+1 --d--> 24
+3 --a--> 24
+3 --b--> 24
+3 --d--> 24
+24 --a--> 24
+24 --b--> 24
+24 --c--> 24
+24 --d--> 24
+
+=== Reconnaissance de mots avec l'automate déterministe et complet ===
+
+Test du mot : 
+✅ Le mot '' est accepté.
+
+Test du mot : a
+❌ Le mot 'a' est rejeté (état final 0_2_3 non terminal).
+
+Test du mot : b
+❌ Le mot 'b' est rejeté (état final 24 non terminal).
+
+Test du mot : c
+❌ Le mot 'c' est rejeté (état final 24 non terminal).
+
+Test du mot : d
+❌ Le mot 'd' est rejeté (état final 24 non terminal).
+
+Test du mot : abbcd
+❌ Le mot 'abbcd' est rejeté (état final 24 non terminal).
+
+Test du mot : accccccd
+❌ Le mot 'accccccd' est rejeté (état final 24 non terminal).
+
+Test du mot : e
+❌ Symbole 'e' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : f
+❌ Symbole 'f' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : aaaaa
+❌ Le mot 'aaaaa' est rejeté (état final 24 non terminal).
+
+Test du mot : ababa
+❌ Le mot 'ababa' est rejeté (état final 24 non terminal).
+
+Test du mot : acbd
+❌ Le mot 'acbd' est rejeté (état final 24 non terminal).
+
+Test du mot : acbbbbbd
+❌ Le mot 'acbbbbbd' est rejeté (état final 24 non terminal).
+
+Test du mot : ccbdadb
+❌ Le mot 'ccbdadb' est rejeté (état final 24 non terminal).
+
+Test du mot : abaaa
+❌ Le mot 'abaaa' est rejeté (état final 24 non terminal).
+
+Test du mot : abcd
+✅ Le mot 'abcd' est accepté.
+
+Test du mot : aaaba
+❌ Le mot 'aaaba' est rejeté (état final 24 non terminal).
+
+Test du mot : ba
+❌ Le mot 'ba' est rejeté (état final 24 non terminal).
+
+Test du mot : aab
+❌ Le mot 'aab' est rejeté (état final 24 non terminal).
+
+Test du mot : aaaaaaaaaaaa
+❌ Le mot 'aaaaaaaaaaaa' est rejeté (état final 24 non terminal).
+
+Test du mot : ababababaaab
+❌ Le mot 'ababababaaab' est rejeté (état final 24 non terminal).
+
+Test du mot : aba
+❌ Le mot 'aba' est rejeté (état final 24 non terminal).
+
+Test du mot : bbbb
+❌ Le mot 'bbbb' est rejeté (état final 24 non terminal).
+
+Test du mot : bbaababend
+❌ Symbole 'e' non reconnu dans l'alphabet de l'automate.
+
+=== Création de l'automate complémentaire ===
+Complémentarisation:
+Cet automate est déterministe
+L'automate est déjà déterministe
+Cet automate est déterministe
+création de l'automate complémentaire : 
+Alphabet: ['a', 'b', 'c', 'd']
+États: {'3', '0_2_3', '0', '1'}
+États initiaux: {'1'}
+États terminaux: {'0_2_3', '0', '3'}
+Transitions:
+1 --a--> 0_2_3
+0_2_3 --b--> 3
+0_2_3 --c--> 0
+0_2_3 --d--> 1
+3 --c--> 0
+0 --d--> 1
+0 --a--> 24
+0 --b--> 24
+0 --c--> 24
+0_2_3 --a--> 24
+1 --b--> 24
+1 --c--> 24
+1 --d--> 24
+3 --a--> 24
+3 --b--> 24
+3 --d--> 24
+24 --a--> 24
+24 --b--> 24
+24 --c--> 24
+24 --d--> 24

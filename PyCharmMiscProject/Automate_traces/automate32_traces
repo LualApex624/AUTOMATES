@@ -1,0 +1,226 @@
+=== Lecture de l'automate depuis le fichier automate/automate32.txt ===
+Alphabet: ['a', 'b', 'c']
+États: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+États initiaux: [0]
+États terminaux: [21]
+Transitions:
+0 --€--> {1, 10}
+1 --€--> {2, 6}
+2 --€--> {3, 5}
+3 --b--> {4}
+4 --€--> {3, 5}
+5 --€--> {8}
+6 --a--> {7}
+7 --€--> {8}
+8 --c--> {9}
+9 --€--> {21}
+10 --€--> {11, 15}
+11 --€--> {12, 14}
+12 --a--> {13}
+13 --€--> {12, 14}
+15 --b--> {16}
+16 --€--> {17}
+17 --€--> {18, 20}
+18 --c--> {19}
+19 --€--> {18, 20}
+20 --€--> {21}
+
+=== Vérification des propriétés de l'automate ===
+Cet automate a des états qui transitent vers plus d'un état avec le même symbole.
+Déterministe : False
+Cet automate est standard
+Standard : True
+L'automate est incomplet car les états suivants sont sans transitions : [(0, 'a'), (0, 'b'), (0, 'c'), (1, 'a'), (1, 'b'), (1, 'c'), (2, 'a'), (2, 'b'), (2, 'c'), (3, 'a'), (3, 'c'), (4, 'a'), (4, 'b'), (4, 'c'), (5, 'a'), (5, 'b'), (5, 'c'), (6, 'b'), (6, 'c'), (7, 'a'), (7, 'b'), (7, 'c'), (8, 'a'), (8, 'b'), (9, 'a'), (9, 'b'), (9, 'c'), (10, 'a'), (10, 'b'), (10, 'c'), (11, 'a'), (11, 'b'), (11, 'c'), (12, 'b'), (12, 'c'), (13, 'a'), (13, 'b'), (13, 'c'), (14, 'a'), (14, 'b'), (14, 'c'), (15, 'a'), (15, 'c'), (16, 'a'), (16, 'b'), (16, 'c'), (17, 'a'), (17, 'b'), (17, 'c'), (18, 'a'), (18, 'b'), (19, 'a'), (19, 'b'), (19, 'c'), (20, 'a'), (20, 'b'), (20, 'c'), (21, 'a'), (21, 'b'), (21, 'c')]
+Complet : False
+
+=== Standardisation de l'automate ===
+Cet automate est standard
+L'automate est déjà standard.
+
+=== Déterminisation et complétion de l'automate ===
+
+Début de la déterminisation et de la complétion...
+L'automate contient des transitions epsilon. Utilisation de determiniser_automate_epsilon.
+Cet automate a des états qui transitent vers plus d'un état avec le même symbole.
+L'automate n'est pas déterministe, création de l'automate déterministe : 
+Automate déterminisé :
+Alphabet: ['a', 'b', 'c']
+États: {'3_4_5_8', '9_18_19_20_21', '3_4_5_8_16_17_18_20_21', '7_8_12_13_14', '18_19_20_21', '0_1_2_3_5_6_8_10_11_12_14_15', '9_21', '12_13_14'}
+États initiaux: {'0_1_2_3_5_6_8_10_11_12_14_15'}
+États terminaux: {'18_19_20_21', '3_4_5_8_16_17_18_20_21', '9_21', '9_18_19_20_21'}
+Transitions:
+0_1_2_3_5_6_8_10_11_12_14_15 --a--> 7_8_12_13_14
+0_1_2_3_5_6_8_10_11_12_14_15 --b--> 3_4_5_8_16_17_18_20_21
+0_1_2_3_5_6_8_10_11_12_14_15 --c--> 9_21
+7_8_12_13_14 --a--> 12_13_14
+7_8_12_13_14 --c--> 9_21
+3_4_5_8_16_17_18_20_21 --b--> 3_4_5_8
+3_4_5_8_16_17_18_20_21 --c--> 9_18_19_20_21
+12_13_14 --a--> 12_13_14
+3_4_5_8 --b--> 3_4_5_8
+3_4_5_8 --c--> 9_21
+9_18_19_20_21 --c--> 18_19_20_21
+18_19_20_21 --c--> 18_19_20_21
+
+Complétion en cours...
+Cet automate est déterministe
+L'automate est incomplet car les états suivants sont sans transitions : [('3_4_5_8', 'a'), ('9_18_19_20_21', 'a'), ('9_18_19_20_21', 'b'), ('3_4_5_8_16_17_18_20_21', 'a'), ('7_8_12_13_14', 'b'), ('18_19_20_21', 'a'), ('18_19_20_21', 'b'), ('9_21', 'a'), ('9_21', 'b'), ('9_21', 'c'), ('12_13_14', 'b'), ('12_13_14', 'c')]
+Début de la complétion...
+➕ Transition ajoutée : 3_4_5_8 --(a)--> 1235681011121416
+➕ Transition ajoutée : 9_18_19_20_21 --(a)--> 1235681011121416
+➕ Transition ajoutée : 9_18_19_20_21 --(b)--> 1235681011121416
+➕ Transition ajoutée : 3_4_5_8_16_17_18_20_21 --(a)--> 1235681011121416
+➕ Transition ajoutée : 7_8_12_13_14 --(b)--> 1235681011121416
+➕ Transition ajoutée : 18_19_20_21 --(a)--> 1235681011121416
+➕ Transition ajoutée : 18_19_20_21 --(b)--> 1235681011121416
+➕ Transition ajoutée : 9_21 --(a)--> 1235681011121416
+➕ Transition ajoutée : 9_21 --(b)--> 1235681011121416
+➕ Transition ajoutée : 9_21 --(c)--> 1235681011121416
+➕ Transition ajoutée : 12_13_14 --(b)--> 1235681011121416
+➕ Transition ajoutée : 12_13_14 --(c)--> 1235681011121416
+Automate déterminisé et complet :
+Alphabet: ['a', 'b', 'c']
+États: {'3_4_5_8', '9_18_19_20_21', '3_4_5_8_16_17_18_20_21', '7_8_12_13_14', '18_19_20_21', '0_1_2_3_5_6_8_10_11_12_14_15', '9_21', '12_13_14'}
+États initiaux: {'0_1_2_3_5_6_8_10_11_12_14_15'}
+États terminaux: {'18_19_20_21', '3_4_5_8_16_17_18_20_21', '9_21', '9_18_19_20_21'}
+Transitions:
+0_1_2_3_5_6_8_10_11_12_14_15 --a--> 7_8_12_13_14
+0_1_2_3_5_6_8_10_11_12_14_15 --b--> 3_4_5_8_16_17_18_20_21
+0_1_2_3_5_6_8_10_11_12_14_15 --c--> 9_21
+7_8_12_13_14 --a--> 12_13_14
+7_8_12_13_14 --c--> 9_21
+3_4_5_8_16_17_18_20_21 --b--> 3_4_5_8
+3_4_5_8_16_17_18_20_21 --c--> 9_18_19_20_21
+12_13_14 --a--> 12_13_14
+3_4_5_8 --b--> 3_4_5_8
+3_4_5_8 --c--> 9_21
+9_18_19_20_21 --c--> 18_19_20_21
+18_19_20_21 --c--> 18_19_20_21
+3_4_5_8 --a--> 1235681011121416
+9_18_19_20_21 --a--> 1235681011121416
+9_18_19_20_21 --b--> 1235681011121416
+3_4_5_8_16_17_18_20_21 --a--> 1235681011121416
+7_8_12_13_14 --b--> 1235681011121416
+18_19_20_21 --a--> 1235681011121416
+18_19_20_21 --b--> 1235681011121416
+9_21 --a--> 1235681011121416
+9_21 --b--> 1235681011121416
+9_21 --c--> 1235681011121416
+12_13_14 --b--> 1235681011121416
+12_13_14 --c--> 1235681011121416
+1235681011121416 --a--> 1235681011121416
+1235681011121416 --b--> 1235681011121416
+1235681011121416 --c--> 1235681011121416
+
+=== Reconnaissance de mots avec l'automate déterministe et complet ===
+
+Test du mot : 
+❌ Le mot '' est rejeté (état final 0_1_2_3_5_6_8_10_11_12_14_15 non terminal).
+
+Test du mot : a
+❌ Le mot 'a' est rejeté (état final 7_8_12_13_14 non terminal).
+
+Test du mot : b
+✅ Le mot 'b' est accepté.
+
+Test du mot : c
+✅ Le mot 'c' est accepté.
+
+Test du mot : d
+❌ Symbole 'd' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : abbcd
+❌ Symbole 'd' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : accccccd
+❌ Symbole 'd' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : e
+❌ Symbole 'e' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : f
+❌ Symbole 'f' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : aaaaa
+❌ Le mot 'aaaaa' est rejeté (état final 12_13_14 non terminal).
+
+Test du mot : ababa
+❌ Le mot 'ababa' est rejeté (état final 1235681011121416 non terminal).
+
+Test du mot : acbd
+❌ Symbole 'd' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : acbbbbbd
+❌ Symbole 'd' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : ccbdadb
+❌ Symbole 'd' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : abaaa
+❌ Le mot 'abaaa' est rejeté (état final 1235681011121416 non terminal).
+
+Test du mot : abcd
+❌ Symbole 'd' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : aaaba
+❌ Le mot 'aaaba' est rejeté (état final 1235681011121416 non terminal).
+
+Test du mot : ba
+❌ Le mot 'ba' est rejeté (état final 1235681011121416 non terminal).
+
+Test du mot : aab
+❌ Le mot 'aab' est rejeté (état final 1235681011121416 non terminal).
+
+Test du mot : aaaaaaaaaaaa
+❌ Le mot 'aaaaaaaaaaaa' est rejeté (état final 12_13_14 non terminal).
+
+Test du mot : ababababaaab
+❌ Le mot 'ababababaaab' est rejeté (état final 1235681011121416 non terminal).
+
+Test du mot : aba
+❌ Le mot 'aba' est rejeté (état final 1235681011121416 non terminal).
+
+Test du mot : bbbb
+❌ Le mot 'bbbb' est rejeté (état final 3_4_5_8 non terminal).
+
+Test du mot : bbaababend
+❌ Symbole 'e' non reconnu dans l'alphabet de l'automate.
+
+=== Création de l'automate complémentaire ===
+Complémentarisation:
+Cet automate est déterministe
+L'automate est déjà déterministe
+Cet automate est déterministe
+création de l'automate complémentaire : 
+Alphabet: ['a', 'b', 'c']
+États: {'3_4_5_8', '9_18_19_20_21', '3_4_5_8_16_17_18_20_21', '7_8_12_13_14', '18_19_20_21', '0_1_2_3_5_6_8_10_11_12_14_15', '9_21', '12_13_14'}
+États initiaux: {'0_1_2_3_5_6_8_10_11_12_14_15'}
+États terminaux: {'0_1_2_3_5_6_8_10_11_12_14_15', '3_4_5_8', '7_8_12_13_14', '12_13_14'}
+Transitions:
+0_1_2_3_5_6_8_10_11_12_14_15 --a--> 7_8_12_13_14
+0_1_2_3_5_6_8_10_11_12_14_15 --b--> 3_4_5_8_16_17_18_20_21
+0_1_2_3_5_6_8_10_11_12_14_15 --c--> 9_21
+7_8_12_13_14 --a--> 12_13_14
+7_8_12_13_14 --c--> 9_21
+3_4_5_8_16_17_18_20_21 --b--> 3_4_5_8
+3_4_5_8_16_17_18_20_21 --c--> 9_18_19_20_21
+12_13_14 --a--> 12_13_14
+3_4_5_8 --b--> 3_4_5_8
+3_4_5_8 --c--> 9_21
+9_18_19_20_21 --c--> 18_19_20_21
+18_19_20_21 --c--> 18_19_20_21
+3_4_5_8 --a--> 1235681011121416
+9_18_19_20_21 --a--> 1235681011121416
+9_18_19_20_21 --b--> 1235681011121416
+3_4_5_8_16_17_18_20_21 --a--> 1235681011121416
+7_8_12_13_14 --b--> 1235681011121416
+18_19_20_21 --a--> 1235681011121416
+18_19_20_21 --b--> 1235681011121416
+9_21 --a--> 1235681011121416
+9_21 --b--> 1235681011121416
+9_21 --c--> 1235681011121416
+12_13_14 --b--> 1235681011121416
+12_13_14 --c--> 1235681011121416
+1235681011121416 --a--> 1235681011121416
+1235681011121416 --b--> 1235681011121416
+1235681011121416 --c--> 1235681011121416

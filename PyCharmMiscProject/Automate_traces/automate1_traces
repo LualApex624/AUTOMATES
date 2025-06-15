@@ -1,0 +1,126 @@
+=== Lecture de l'automate depuis le fichier automate/automate1.txt ===
+Alphabet: []
+États: [0]
+États initiaux: [0]
+États terminaux: [0]
+Transitions:
+
+=== Vérification des propriétés de l'automate ===
+Cet automate est déterministe
+Déterministe : True
+Cet automate est standard
+Standard : True
+Complet : True
+
+=== Standardisation de l'automate ===
+Cet automate est standard
+L'automate est déjà standard.
+
+=== Déterminisation et complétion de l'automate ===
+
+Début de la déterminisation et de la complétion...
+L'automate ne contient pas de transitions epsilon. Utilisation de determiniser_automate.
+Cet automate est déterministe
+L'automate est déjà déterministe
+Automate déterminisé :
+Alphabet: []
+États: [0]
+États initiaux: [0]
+États terminaux: [0]
+Transitions:
+
+Complétion en cours...
+Cet automate est déterministe
+L'automate est déjà complet
+Automate déterminisé et complet :
+Alphabet: []
+États: [0]
+États initiaux: [0]
+États terminaux: [0]
+Transitions:
+
+=== Reconnaissance de mots avec l'automate déterministe et complet ===
+
+Test du mot : 
+✅ Le mot '' est accepté.
+
+Test du mot : a
+❌ Symbole 'a' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : b
+❌ Symbole 'b' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : c
+❌ Symbole 'c' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : d
+❌ Symbole 'd' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : abbcd
+❌ Symbole 'a' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : accccccd
+❌ Symbole 'a' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : e
+❌ Symbole 'e' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : f
+❌ Symbole 'f' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : aaaaa
+❌ Symbole 'a' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : ababa
+❌ Symbole 'a' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : acbd
+❌ Symbole 'a' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : acbbbbbd
+❌ Symbole 'a' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : ccbdadb
+❌ Symbole 'c' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : abaaa
+❌ Symbole 'a' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : abcd
+❌ Symbole 'a' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : aaaba
+❌ Symbole 'a' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : ba
+❌ Symbole 'b' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : aab
+❌ Symbole 'a' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : aaaaaaaaaaaa
+❌ Symbole 'a' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : ababababaaab
+❌ Symbole 'a' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : aba
+❌ Symbole 'a' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : bbbb
+❌ Symbole 'b' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : bbaababend
+❌ Symbole 'b' non reconnu dans l'alphabet de l'automate.
+
+=== Création de l'automate complémentaire ===
+Complémentarisation:
+Cet automate est déterministe
+L'automate est déjà déterministe
+Cet automate est déterministe
+création de l'automate complémentaire : 
+Alphabet: []
+États: [0]
+États initiaux: [0]
+États terminaux: set()
+Transitions:

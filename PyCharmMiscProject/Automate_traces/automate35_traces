@@ -1,0 +1,189 @@
+=== Lecture de l'automate depuis le fichier automate/automate35.txt ===
+Alphabet: ['a', 'b', 'c']
+États: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+États initiaux: [0]
+États terminaux: [10]
+Transitions:
+0 --€--> {1, 4}
+1 --a--> {2}
+2 --b--> {3}
+3 --€--> {10}
+4 --€--> {8, 5}
+5 --a--> {6}
+6 --b--> {7}
+7 --€--> {8, 5}
+8 --a--> {9}
+9 --€--> {10}
+
+=== Vérification des propriétés de l'automate ===
+Cet automate a des états qui transitent vers plus d'un état avec le même symbole.
+Déterministe : False
+Cet automate est standard
+Standard : True
+L'automate est incomplet car les états suivants sont sans transitions : [(0, 'a'), (0, 'b'), (0, 'c'), (1, 'b'), (1, 'c'), (2, 'a'), (2, 'c'), (3, 'a'), (3, 'b'), (3, 'c'), (4, 'a'), (4, 'b'), (4, 'c'), (5, 'b'), (5, 'c'), (6, 'a'), (6, 'c'), (7, 'a'), (7, 'b'), (7, 'c'), (8, 'b'), (8, 'c'), (9, 'a'), (9, 'b'), (9, 'c'), (10, 'a'), (10, 'b'), (10, 'c')]
+Complet : False
+
+=== Standardisation de l'automate ===
+Cet automate est standard
+L'automate est déjà standard.
+
+=== Déterminisation et complétion de l'automate ===
+
+Début de la déterminisation et de la complétion...
+L'automate contient des transitions epsilon. Utilisation de determiniser_automate_epsilon.
+Cet automate a des états qui transitent vers plus d'un état avec le même symbole.
+L'automate n'est pas déterministe, création de l'automate déterministe : 
+Automate déterminisé :
+Alphabet: ['a', 'b', 'c']
+États: {'0_1_4_5_8', '5_7_8', '2_6_9_10', '6_9_10', '3_5_7_8_10'}
+États initiaux: {'0_1_4_5_8'}
+États terminaux: {'6_9_10', '3_5_7_8_10', '2_6_9_10'}
+Transitions:
+0_1_4_5_8 --a--> 2_6_9_10
+2_6_9_10 --b--> 3_5_7_8_10
+3_5_7_8_10 --a--> 6_9_10
+6_9_10 --b--> 5_7_8
+5_7_8 --a--> 6_9_10
+
+Complétion en cours...
+Cet automate est déterministe
+L'automate est incomplet car les états suivants sont sans transitions : [('0_1_4_5_8', 'b'), ('0_1_4_5_8', 'c'), ('5_7_8', 'b'), ('5_7_8', 'c'), ('2_6_9_10', 'a'), ('2_6_9_10', 'c'), ('6_9_10', 'a'), ('6_9_10', 'c'), ('3_5_7_8_10', 'b'), ('3_5_7_8_10', 'c')]
+Début de la complétion...
+➕ Transition ajoutée : 6_9_10 --(a)--> 357811
+➕ Transition ajoutée : 6_9_10 --(c)--> 357811
+➕ Transition ajoutée : 3_5_7_8_10 --(b)--> 357811
+➕ Transition ajoutée : 3_5_7_8_10 --(c)--> 357811
+➕ Transition ajoutée : 0_1_4_5_8 --(b)--> 357811
+➕ Transition ajoutée : 0_1_4_5_8 --(c)--> 357811
+➕ Transition ajoutée : 5_7_8 --(b)--> 357811
+➕ Transition ajoutée : 5_7_8 --(c)--> 357811
+➕ Transition ajoutée : 2_6_9_10 --(a)--> 357811
+➕ Transition ajoutée : 2_6_9_10 --(c)--> 357811
+Automate déterminisé et complet :
+Alphabet: ['a', 'b', 'c']
+États: {'6_9_10', '3_5_7_8_10', '0_1_4_5_8', '5_7_8', '2_6_9_10'}
+États initiaux: {'0_1_4_5_8'}
+États terminaux: {'6_9_10', '3_5_7_8_10', '2_6_9_10'}
+Transitions:
+0_1_4_5_8 --a--> 2_6_9_10
+2_6_9_10 --b--> 3_5_7_8_10
+3_5_7_8_10 --a--> 6_9_10
+6_9_10 --b--> 5_7_8
+5_7_8 --a--> 6_9_10
+6_9_10 --a--> 357811
+6_9_10 --c--> 357811
+3_5_7_8_10 --b--> 357811
+3_5_7_8_10 --c--> 357811
+0_1_4_5_8 --b--> 357811
+0_1_4_5_8 --c--> 357811
+5_7_8 --b--> 357811
+5_7_8 --c--> 357811
+2_6_9_10 --a--> 357811
+2_6_9_10 --c--> 357811
+357811 --a--> 357811
+357811 --b--> 357811
+357811 --c--> 357811
+
+=== Reconnaissance de mots avec l'automate déterministe et complet ===
+
+Test du mot : 
+❌ Le mot '' est rejeté (état final 0_1_4_5_8 non terminal).
+
+Test du mot : a
+✅ Le mot 'a' est accepté.
+
+Test du mot : b
+❌ Le mot 'b' est rejeté (état final 357811 non terminal).
+
+Test du mot : c
+❌ Le mot 'c' est rejeté (état final 357811 non terminal).
+
+Test du mot : d
+❌ Symbole 'd' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : abbcd
+❌ Symbole 'd' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : accccccd
+❌ Symbole 'd' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : e
+❌ Symbole 'e' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : f
+❌ Symbole 'f' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : aaaaa
+❌ Le mot 'aaaaa' est rejeté (état final 357811 non terminal).
+
+Test du mot : ababa
+✅ Le mot 'ababa' est accepté.
+
+Test du mot : acbd
+❌ Symbole 'd' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : acbbbbbd
+❌ Symbole 'd' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : ccbdadb
+❌ Symbole 'd' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : abaaa
+❌ Le mot 'abaaa' est rejeté (état final 357811 non terminal).
+
+Test du mot : abcd
+❌ Symbole 'd' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : aaaba
+❌ Le mot 'aaaba' est rejeté (état final 357811 non terminal).
+
+Test du mot : ba
+❌ Le mot 'ba' est rejeté (état final 357811 non terminal).
+
+Test du mot : aab
+❌ Le mot 'aab' est rejeté (état final 357811 non terminal).
+
+Test du mot : aaaaaaaaaaaa
+❌ Le mot 'aaaaaaaaaaaa' est rejeté (état final 357811 non terminal).
+
+Test du mot : ababababaaab
+❌ Le mot 'ababababaaab' est rejeté (état final 357811 non terminal).
+
+Test du mot : aba
+✅ Le mot 'aba' est accepté.
+
+Test du mot : bbbb
+❌ Le mot 'bbbb' est rejeté (état final 357811 non terminal).
+
+Test du mot : bbaababend
+❌ Symbole 'e' non reconnu dans l'alphabet de l'automate.
+
+=== Création de l'automate complémentaire ===
+Complémentarisation:
+Cet automate est déterministe
+L'automate est déjà déterministe
+Cet automate est déterministe
+création de l'automate complémentaire : 
+Alphabet: ['a', 'b', 'c']
+États: {'0_1_4_5_8', '5_7_8', '2_6_9_10', '6_9_10', '3_5_7_8_10'}
+États initiaux: {'0_1_4_5_8'}
+États terminaux: {'0_1_4_5_8', '5_7_8'}
+Transitions:
+0_1_4_5_8 --a--> 2_6_9_10
+2_6_9_10 --b--> 3_5_7_8_10
+3_5_7_8_10 --a--> 6_9_10
+6_9_10 --b--> 5_7_8
+5_7_8 --a--> 6_9_10
+6_9_10 --a--> 357811
+6_9_10 --c--> 357811
+3_5_7_8_10 --b--> 357811
+3_5_7_8_10 --c--> 357811
+0_1_4_5_8 --b--> 357811
+0_1_4_5_8 --c--> 357811
+5_7_8 --b--> 357811
+5_7_8 --c--> 357811
+2_6_9_10 --a--> 357811
+2_6_9_10 --c--> 357811
+357811 --a--> 357811
+357811 --b--> 357811
+357811 --c--> 357811

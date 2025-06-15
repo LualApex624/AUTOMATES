@@ -1,0 +1,183 @@
+=== Lecture de l'automate depuis le fichier automate/automate10.txt ===
+Alphabet: ['a', 'b']
+États: [0, 1, 2, 3, 4]
+États initiaux: [0]
+États terminaux: [0]
+Transitions:
+0 --a--> {1}
+1 --a--> {2}
+1 --b--> {2}
+2 --a--> {3}
+3 --a--> {4}
+3 --b--> {4}
+4 --a--> {0}
+
+=== Vérification des propriétés de l'automate ===
+Cet automate est déterministe
+Déterministe : True
+Il y'a des transitions qui mènent à l'état initial de cet automate, il n'est pas standard
+Standard : False
+L'automate est incomplet car les états suivants sont sans transitions : [(0, 'b'), (2, 'b'), (4, 'b')]
+Complet : False
+
+=== Standardisation de l'automate ===
+Il y'a des transitions qui mènent à l'état initial de cet automate, il n'est pas standard
+Il y'a des transitions qui mènent à l'état initial de cet automate, il n'est pas standard
+Création de l'automate standard : 
+Alphabet: ['a', 'b']
+États: [0, 1, 2, 3, 4, 5]
+États initiaux: [5]
+États terminaux: [0, 5]
+Transitions:
+0 --a--> {1}
+1 --a--> {2}
+1 --b--> {2}
+2 --a--> {3}
+3 --a--> {4}
+3 --b--> {4}
+4 --a--> {0}
+5 --a--> {1}
+
+=== Déterminisation et complétion de l'automate ===
+
+Début de la déterminisation et de la complétion...
+L'automate ne contient pas de transitions epsilon. Utilisation de determiniser_automate.
+Cet automate est déterministe
+L'automate est déjà déterministe
+Automate déterminisé :
+Alphabet: ['a', 'b']
+États: [0, 1, 2, 3, 4]
+États initiaux: [0]
+États terminaux: [0]
+Transitions:
+0 --a--> {1}
+1 --a--> {2}
+1 --b--> {2}
+2 --a--> {3}
+3 --a--> {4}
+3 --b--> {4}
+4 --a--> {0}
+
+Complétion en cours...
+Cet automate est déterministe
+L'automate est incomplet car les états suivants sont sans transitions : [(0, 'b'), (2, 'b'), (4, 'b')]
+Début de la complétion...
+➕ Transition ajoutée : 0 --(b)--> 5
+➕ Transition ajoutée : 2 --(b)--> 5
+➕ Transition ajoutée : 4 --(b)--> 5
+Automate déterminisé et complet :
+Alphabet: ['a', 'b']
+États: {0, 1, 2, 3, 4}
+États initiaux: [0]
+États terminaux: [0]
+Transitions:
+0 --a--> {1}
+1 --a--> {2}
+1 --b--> {2}
+2 --a--> {3}
+3 --a--> {4}
+3 --b--> {4}
+4 --a--> {0}
+0 --b--> 5
+2 --b--> 5
+4 --b--> 5
+5 --a--> 5
+5 --b--> 5
+
+=== Reconnaissance de mots avec l'automate déterministe et complet ===
+
+Test du mot : 
+✅ Le mot '' est accepté.
+
+Test du mot : a
+❌ Le mot 'a' est rejeté (état final 1 non terminal).
+
+Test du mot : b
+❌ Le mot 'b' est rejeté (état final 5 non terminal).
+
+Test du mot : c
+❌ Symbole 'c' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : d
+❌ Symbole 'd' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : abbcd
+❌ Symbole 'c' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : accccccd
+❌ Symbole 'c' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : e
+❌ Symbole 'e' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : f
+❌ Symbole 'f' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : aaaaa
+✅ Le mot 'aaaaa' est accepté.
+
+Test du mot : ababa
+✅ Le mot 'ababa' est accepté.
+
+Test du mot : acbd
+❌ Symbole 'c' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : acbbbbbd
+❌ Symbole 'c' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : ccbdadb
+❌ Symbole 'c' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : abaaa
+✅ Le mot 'abaaa' est accepté.
+
+Test du mot : abcd
+❌ Symbole 'c' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : aaaba
+✅ Le mot 'aaaba' est accepté.
+
+Test du mot : ba
+❌ Le mot 'ba' est rejeté (état final 5 non terminal).
+
+Test du mot : aab
+❌ Le mot 'aab' est rejeté (état final 5 non terminal).
+
+Test du mot : aaaaaaaaaaaa
+❌ Le mot 'aaaaaaaaaaaa' est rejeté (état final 2 non terminal).
+
+Test du mot : ababababaaab
+❌ Le mot 'ababababaaab' est rejeté (état final 5 non terminal).
+
+Test du mot : aba
+❌ Le mot 'aba' est rejeté (état final 3 non terminal).
+
+Test du mot : bbbb
+❌ Le mot 'bbbb' est rejeté (état final 5 non terminal).
+
+Test du mot : bbaababend
+❌ Symbole 'e' non reconnu dans l'alphabet de l'automate.
+
+=== Création de l'automate complémentaire ===
+Complémentarisation:
+Cet automate est déterministe
+L'automate est déjà déterministe
+Cet automate est déterministe
+création de l'automate complémentaire : 
+Alphabet: ['a', 'b']
+États: {0, 1, 2, 3, 4}
+États initiaux: [0]
+États terminaux: {1, 2, 3, 4}
+Transitions:
+0 --a--> {1}
+1 --a--> {2}
+1 --b--> {2}
+2 --a--> {3}
+3 --a--> {4}
+3 --b--> {4}
+4 --a--> {0}
+0 --b--> 5
+2 --b--> 5
+4 --b--> 5
+5 --a--> 5
+5 --b--> 5

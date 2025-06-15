@@ -1,0 +1,209 @@
+=== Lecture de l'automate depuis le fichier automate/automate18.txt ===
+Alphabet: ['a', 'b', 'c', 'd']
+États: [0, 1, 2, 3, 4]
+États initiaux: [1]
+États terminaux: [0]
+Transitions:
+1 --a--> {2}
+1 --b--> {3}
+1 --c--> {4}
+1 --d--> {0}
+2 --a--> {2}
+2 --b--> {3}
+2 --c--> {4}
+2 --d--> {0}
+3 --b--> {3}
+3 --c--> {4}
+3 --d--> {0}
+4 --c--> {4}
+4 --d--> {0}
+
+=== Vérification des propriétés de l'automate ===
+Cet automate est déterministe
+Déterministe : True
+Cet automate est standard
+Standard : True
+L'automate est incomplet car les états suivants sont sans transitions : [(0, 'a'), (0, 'b'), (0, 'c'), (0, 'd'), (3, 'a'), (4, 'a'), (4, 'b')]
+Complet : False
+
+=== Standardisation de l'automate ===
+Cet automate est standard
+L'automate est déjà standard.
+
+=== Déterminisation et complétion de l'automate ===
+
+Début de la déterminisation et de la complétion...
+L'automate ne contient pas de transitions epsilon. Utilisation de determiniser_automate.
+Cet automate est déterministe
+L'automate est déjà déterministe
+Automate déterminisé :
+Alphabet: ['a', 'b', 'c', 'd']
+États: [0, 1, 2, 3, 4]
+États initiaux: [1]
+États terminaux: [0]
+Transitions:
+1 --a--> {2}
+1 --b--> {3}
+1 --c--> {4}
+1 --d--> {0}
+2 --a--> {2}
+2 --b--> {3}
+2 --c--> {4}
+2 --d--> {0}
+3 --b--> {3}
+3 --c--> {4}
+3 --d--> {0}
+4 --c--> {4}
+4 --d--> {0}
+
+Complétion en cours...
+Cet automate est déterministe
+L'automate est incomplet car les états suivants sont sans transitions : [(0, 'a'), (0, 'b'), (0, 'c'), (0, 'd'), (3, 'a'), (4, 'a'), (4, 'b')]
+Début de la complétion...
+➕ Transition ajoutée : 0 --(a)--> 5
+➕ Transition ajoutée : 0 --(b)--> 5
+➕ Transition ajoutée : 0 --(c)--> 5
+➕ Transition ajoutée : 0 --(d)--> 5
+➕ Transition ajoutée : 3 --(a)--> 5
+➕ Transition ajoutée : 4 --(a)--> 5
+➕ Transition ajoutée : 4 --(b)--> 5
+Automate déterminisé et complet :
+Alphabet: ['a', 'b', 'c', 'd']
+États: {0, 1, 2, 3, 4}
+États initiaux: [1]
+États terminaux: [0]
+Transitions:
+1 --a--> {2}
+1 --b--> {3}
+1 --c--> {4}
+1 --d--> {0}
+2 --a--> {2}
+2 --b--> {3}
+2 --c--> {4}
+2 --d--> {0}
+3 --b--> {3}
+3 --c--> {4}
+3 --d--> {0}
+4 --c--> {4}
+4 --d--> {0}
+0 --a--> 5
+0 --b--> 5
+0 --c--> 5
+0 --d--> 5
+3 --a--> 5
+4 --a--> 5
+4 --b--> 5
+5 --a--> 5
+5 --b--> 5
+5 --c--> 5
+5 --d--> 5
+
+=== Reconnaissance de mots avec l'automate déterministe et complet ===
+
+Test du mot : 
+❌ Le mot '' est rejeté (état final 1 non terminal).
+
+Test du mot : a
+❌ Le mot 'a' est rejeté (état final 2 non terminal).
+
+Test du mot : b
+❌ Le mot 'b' est rejeté (état final 3 non terminal).
+
+Test du mot : c
+❌ Le mot 'c' est rejeté (état final 4 non terminal).
+
+Test du mot : d
+✅ Le mot 'd' est accepté.
+
+Test du mot : abbcd
+✅ Le mot 'abbcd' est accepté.
+
+Test du mot : accccccd
+✅ Le mot 'accccccd' est accepté.
+
+Test du mot : e
+❌ Symbole 'e' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : f
+❌ Symbole 'f' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : aaaaa
+❌ Le mot 'aaaaa' est rejeté (état final 2 non terminal).
+
+Test du mot : ababa
+❌ Le mot 'ababa' est rejeté (état final 5 non terminal).
+
+Test du mot : acbd
+❌ Le mot 'acbd' est rejeté (état final 5 non terminal).
+
+Test du mot : acbbbbbd
+❌ Le mot 'acbbbbbd' est rejeté (état final 5 non terminal).
+
+Test du mot : ccbdadb
+❌ Le mot 'ccbdadb' est rejeté (état final 5 non terminal).
+
+Test du mot : abaaa
+❌ Le mot 'abaaa' est rejeté (état final 5 non terminal).
+
+Test du mot : abcd
+✅ Le mot 'abcd' est accepté.
+
+Test du mot : aaaba
+❌ Le mot 'aaaba' est rejeté (état final 5 non terminal).
+
+Test du mot : ba
+❌ Le mot 'ba' est rejeté (état final 5 non terminal).
+
+Test du mot : aab
+❌ Le mot 'aab' est rejeté (état final 3 non terminal).
+
+Test du mot : aaaaaaaaaaaa
+❌ Le mot 'aaaaaaaaaaaa' est rejeté (état final 2 non terminal).
+
+Test du mot : ababababaaab
+❌ Le mot 'ababababaaab' est rejeté (état final 5 non terminal).
+
+Test du mot : aba
+❌ Le mot 'aba' est rejeté (état final 5 non terminal).
+
+Test du mot : bbbb
+❌ Le mot 'bbbb' est rejeté (état final 3 non terminal).
+
+Test du mot : bbaababend
+❌ Symbole 'e' non reconnu dans l'alphabet de l'automate.
+
+=== Création de l'automate complémentaire ===
+Complémentarisation:
+Cet automate est déterministe
+L'automate est déjà déterministe
+Cet automate est déterministe
+création de l'automate complémentaire : 
+Alphabet: ['a', 'b', 'c', 'd']
+États: {0, 1, 2, 3, 4}
+États initiaux: [1]
+États terminaux: {1, 2, 3, 4}
+Transitions:
+1 --a--> {2}
+1 --b--> {3}
+1 --c--> {4}
+1 --d--> {0}
+2 --a--> {2}
+2 --b--> {3}
+2 --c--> {4}
+2 --d--> {0}
+3 --b--> {3}
+3 --c--> {4}
+3 --d--> {0}
+4 --c--> {4}
+4 --d--> {0}
+0 --a--> 5
+0 --b--> 5
+0 --c--> 5
+0 --d--> 5
+3 --a--> 5
+4 --a--> 5
+4 --b--> 5
+5 --a--> 5
+5 --b--> 5
+5 --c--> 5
+5 --d--> 5

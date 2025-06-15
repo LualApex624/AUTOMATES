@@ -1,0 +1,222 @@
+=== Lecture de l'automate depuis le fichier automate/automate20.txt ===
+Alphabet: ['a', 'b', 'c', 'd']
+États: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+États initiaux: [1, 6, 7, 8, 0]
+États terminaux: [5]
+Transitions:
+1 --a--> {2}
+2 --b--> {3}
+3 --c--> {4}
+4 --d--> {5}
+6 --a--> {2}
+7 --b--> {3}
+8 --c--> {4}
+0 --d--> {5}
+
+=== Vérification des propriétés de l'automate ===
+Cet automate n'a pas un unique état initial, il n'est pas déterministe
+Déterministe : False
+Cet automate n'a pas 1 unique état initial, il n'est pas standard
+Standard : False
+L'automate est incomplet car les états suivants sont sans transitions : [(0, 'a'), (0, 'b'), (0, 'c'), (1, 'b'), (1, 'c'), (1, 'd'), (2, 'a'), (2, 'c'), (2, 'd'), (3, 'a'), (3, 'b'), (3, 'd'), (4, 'a'), (4, 'b'), (4, 'c'), (5, 'a'), (5, 'b'), (5, 'c'), (5, 'd'), (6, 'b'), (6, 'c'), (6, 'd'), (7, 'a'), (7, 'c'), (7, 'd'), (8, 'a'), (8, 'b'), (8, 'd')]
+Complet : False
+
+=== Standardisation de l'automate ===
+Cet automate n'a pas 1 unique état initial, il n'est pas standard
+Cet automate n'a pas 1 unique état initial, il n'est pas standard
+Création de l'automate standard : 
+Alphabet: ['a', 'b', 'c', 'd']
+États: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+États initiaux: [9]
+États terminaux: [5]
+Transitions:
+1 --a--> {2}
+2 --b--> {3}
+3 --c--> {4}
+4 --d--> {5}
+6 --a--> {2}
+7 --b--> {3}
+8 --c--> {4}
+0 --d--> {5}
+9 --a--> {2}
+9 --b--> {3}
+9 --c--> {4}
+9 --d--> {5}
+
+=== Déterminisation et complétion de l'automate ===
+
+Début de la déterminisation et de la complétion...
+L'automate ne contient pas de transitions epsilon. Utilisation de determiniser_automate.
+Cet automate n'a pas un unique état initial, il n'est pas déterministe
+L'automate n'est pas déterministe, création de l'automate déterministe : 
+Automate déterminisé :
+Alphabet: ['a', 'b', 'c', 'd']
+États: {'4', '5', '0_1_6_7_8', '3', '2'}
+États initiaux: {'0_1_6_7_8'}
+États terminaux: {'5'}
+Transitions:
+0_1_6_7_8 --a--> 2
+0_1_6_7_8 --b--> 3
+0_1_6_7_8 --c--> 4
+0_1_6_7_8 --d--> 5
+2 --b--> 3
+3 --c--> 4
+4 --d--> 5
+
+Complétion en cours...
+Cet automate est déterministe
+L'automate est incomplet car les états suivants sont sans transitions : [('4', 'a'), ('4', 'b'), ('4', 'c'), ('5', 'a'), ('5', 'b'), ('5', 'c'), ('5', 'd'), ('3', 'a'), ('3', 'b'), ('3', 'd'), ('2', 'a'), ('2', 'c'), ('2', 'd')]
+Début de la complétion...
+➕ Transition ajoutée : 4 --(a)--> 1679
+➕ Transition ajoutée : 4 --(b)--> 1679
+➕ Transition ajoutée : 4 --(c)--> 1679
+➕ Transition ajoutée : 3 --(a)--> 1679
+➕ Transition ajoutée : 3 --(b)--> 1679
+➕ Transition ajoutée : 3 --(d)--> 1679
+➕ Transition ajoutée : 2 --(a)--> 1679
+➕ Transition ajoutée : 2 --(c)--> 1679
+➕ Transition ajoutée : 2 --(d)--> 1679
+➕ Transition ajoutée : 5 --(a)--> 1679
+➕ Transition ajoutée : 5 --(b)--> 1679
+➕ Transition ajoutée : 5 --(c)--> 1679
+➕ Transition ajoutée : 5 --(d)--> 1679
+Automate déterminisé et complet :
+Alphabet: ['a', 'b', 'c', 'd']
+États: {'0_1_6_7_8', '4', '3', '2', '5'}
+États initiaux: {'0_1_6_7_8'}
+États terminaux: {'5'}
+Transitions:
+0_1_6_7_8 --a--> 2
+0_1_6_7_8 --b--> 3
+0_1_6_7_8 --c--> 4
+0_1_6_7_8 --d--> 5
+2 --b--> 3
+3 --c--> 4
+4 --d--> 5
+4 --a--> 1679
+4 --b--> 1679
+4 --c--> 1679
+3 --a--> 1679
+3 --b--> 1679
+3 --d--> 1679
+2 --a--> 1679
+2 --c--> 1679
+2 --d--> 1679
+5 --a--> 1679
+5 --b--> 1679
+5 --c--> 1679
+5 --d--> 1679
+1679 --a--> 1679
+1679 --b--> 1679
+1679 --c--> 1679
+1679 --d--> 1679
+
+=== Reconnaissance de mots avec l'automate déterministe et complet ===
+
+Test du mot : 
+❌ Le mot '' est rejeté (état final 0_1_6_7_8 non terminal).
+
+Test du mot : a
+❌ Le mot 'a' est rejeté (état final 2 non terminal).
+
+Test du mot : b
+❌ Le mot 'b' est rejeté (état final 3 non terminal).
+
+Test du mot : c
+❌ Le mot 'c' est rejeté (état final 4 non terminal).
+
+Test du mot : d
+✅ Le mot 'd' est accepté.
+
+Test du mot : abbcd
+❌ Le mot 'abbcd' est rejeté (état final 1679 non terminal).
+
+Test du mot : accccccd
+❌ Le mot 'accccccd' est rejeté (état final 1679 non terminal).
+
+Test du mot : e
+❌ Symbole 'e' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : f
+❌ Symbole 'f' non reconnu dans l'alphabet de l'automate.
+
+Test du mot : aaaaa
+❌ Le mot 'aaaaa' est rejeté (état final 1679 non terminal).
+
+Test du mot : ababa
+❌ Le mot 'ababa' est rejeté (état final 1679 non terminal).
+
+Test du mot : acbd
+❌ Le mot 'acbd' est rejeté (état final 1679 non terminal).
+
+Test du mot : acbbbbbd
+❌ Le mot 'acbbbbbd' est rejeté (état final 1679 non terminal).
+
+Test du mot : ccbdadb
+❌ Le mot 'ccbdadb' est rejeté (état final 1679 non terminal).
+
+Test du mot : abaaa
+❌ Le mot 'abaaa' est rejeté (état final 1679 non terminal).
+
+Test du mot : abcd
+✅ Le mot 'abcd' est accepté.
+
+Test du mot : aaaba
+❌ Le mot 'aaaba' est rejeté (état final 1679 non terminal).
+
+Test du mot : ba
+❌ Le mot 'ba' est rejeté (état final 1679 non terminal).
+
+Test du mot : aab
+❌ Le mot 'aab' est rejeté (état final 1679 non terminal).
+
+Test du mot : aaaaaaaaaaaa
+❌ Le mot 'aaaaaaaaaaaa' est rejeté (état final 1679 non terminal).
+
+Test du mot : ababababaaab
+❌ Le mot 'ababababaaab' est rejeté (état final 1679 non terminal).
+
+Test du mot : aba
+❌ Le mot 'aba' est rejeté (état final 1679 non terminal).
+
+Test du mot : bbbb
+❌ Le mot 'bbbb' est rejeté (état final 1679 non terminal).
+
+Test du mot : bbaababend
+❌ Symbole 'e' non reconnu dans l'alphabet de l'automate.
+
+=== Création de l'automate complémentaire ===
+Complémentarisation:
+Cet automate est déterministe
+L'automate est déjà déterministe
+Cet automate est déterministe
+création de l'automate complémentaire : 
+Alphabet: ['a', 'b', 'c', 'd']
+États: {'4', '5', '0_1_6_7_8', '3', '2'}
+États initiaux: {'0_1_6_7_8'}
+États terminaux: {'0_1_6_7_8', '4', '2', '3'}
+Transitions:
+0_1_6_7_8 --a--> 2
+0_1_6_7_8 --b--> 3
+0_1_6_7_8 --c--> 4
+0_1_6_7_8 --d--> 5
+2 --b--> 3
+3 --c--> 4
+4 --d--> 5
+4 --a--> 1679
+4 --b--> 1679
+4 --c--> 1679
+3 --a--> 1679
+3 --b--> 1679
+3 --d--> 1679
+2 --a--> 1679
+2 --c--> 1679
+2 --d--> 1679
+5 --a--> 1679
+5 --b--> 1679
+5 --c--> 1679
+5 --d--> 1679
+1679 --a--> 1679
+1679 --b--> 1679
+1679 --c--> 1679
+1679 --d--> 1679
